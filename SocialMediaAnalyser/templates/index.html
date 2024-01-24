@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag and Drop Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        #title {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-size: 50px;
+            margin: 4vh 4vh 5vh 4vh;
+        }
+
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 80vh;
+        }
+
+        #textbox-div {
+            width: 90vw;
+            font-size: xx-large;
+            padding: 10px;
+            display: flex;
+        }
+
+        input[type="text"] {
+            height: 100%;
+            width:100%;
+            font-size: 35px;
+            padding-left: 10px;
+            border-radius: 10px;
+        }
+
+        img {
+            margin-left: 10px;
+            border-radius: 10px;
+            width: 96;
+            height: 96;
+        }
+
+        #dragdrop-div{
+            width: 90vw;
+            height: 70%;
+            padding: 50px;
+            font-size: 20px;
+            display: flex;
+        }
+
+        .dropzone {
+            width: 100%;
+            height: 100%;
+            border: 2px dashed #ccc;
+            font-size: 25px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #dropzone-text{
+            color: darkgrey;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1 id="title">Drag and Drop Example</h1>
+
+    <div id="main-container">
+        <div id="textbox-div">
+            <input type="text" placeholder="Enter link here">
+            <img src="https://img.icons8.com/material-sharp/96/enter-2.png" alt="enter-2" onclick="option_link()"/>
+        </div>
+
+        <hr>
+
+        <div id="dragdrop-div">
+            <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id = "dropzone-text">
+                    <p>Drag and drop files here</p>
+                    <p>XML or HTML</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+        
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+        }
+
+        function option_link(){
+            var link = document.getElementById("textbox-div").getElementsByTagName("input")[0].value;
+            console.log(link);
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://jsonplaceholder.typicode.com/todos");
+            xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
+            xhr.send(JSON.stringify({
+                link: link
+            }));
+        }
+    </script>
+</body>
+</html>
