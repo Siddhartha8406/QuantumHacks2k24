@@ -1,0 +1,24 @@
+THANK YOU SO MUCH!!!!!
+Really Helpful ❤
+This is the error that&#39;s showing...<br><br>Error	<br>GoogleJsonResponseException: API call to youtube.commentThreads.list failed with error: The video identified by the &lt;code&gt;&lt;a href=&quot;/youtube/v3/docs/commentThreads/list<a href="http://www.youtube.com/results?search_query=%23videoid">#videoId</a>&quot;&gt;videoId&lt;/a&gt;&lt;/code&gt; parameter could not be found.<br>scrapeCommentsWithReplies	@ <a href="http://code.gs:9/">Code.gs:9</a><br><br>Have run this code many times since the last year and have not received any errors in the past. <br><br>Please let me know how I can rectify it. <br><br>Many thanks.
+This is amazing!!
+I noticed that HTML code is displayed instead of actual readable character in cells of Google Sheets. For example &lt;br&gt; for line break, and &amp;#39; for apostrophe ( &#39; ). Is there any solution to display actual characters?
+Thank you very much.
+hi
+You are amazing ! it worked amazingly
+Thank you it worked ! 
+<br>
+<br>please if you can you do a comment scrape for instagram
+vbb
+gpph
+Amazing! Super useful video my friend, I give you my thanks
+Can i save the comments as html version also and how?
+hi
+It doesn&#39;t work
+<a href="https://www.youtube.com/watch?v=uD58-EHwaeI&amp;t=1m28s">1:28</a> &quot;script editor&quot; n macros isn&#39;t showing in my google sheet, what should I do?
+if you please activate the subtitle / closed caption
+problem with Exceeded maximum execution time，is there a way to solve this？
+Thank you very much
+Dear sir, pls upload the fresh video as the script interface has changed a lot now. The code is also giving the error<br><br><a href="https://www.youtube.com/watch?v=uD58-EHwaeI&amp;t=9h21m22s">9:21:22</a> PM	Error	
+<br>ReferenceError: YouTube is not defined
+<br>scrapeCommentsWithoutReplies	@ <a href="http://code.gs:8/">Code.gs:8</a>
