@@ -10,6 +10,10 @@ class CommentAnalyser:
         self.final_words = []
         self.emotion_list = []
 
+        self.neg = 0
+        self.neu = 0
+        self.pos = 0
+
 
     def lower_words(self):
         lower_case = self.text.lower()
@@ -18,12 +22,11 @@ class CommentAnalyser:
     def tokenize(self ):
         self.tokenized_word = word_tokenize(self.final_text)
         for word in self.tokenized_word:
-            # print(f"Word: {word}")
             if word not in stopwords.words('english'):
                 self.final_words.append(word)
 
     def get_emotion_list(self):
-        with open('emotions.txt','r') as file:
+        with open('/Users/siddharthareddy/QuantamHacks2k24/SocialMediaAnalyser/index/emotions.txt','r') as file:
             for line in file:
                 clear_line = line.replace("\n", '').replace(',','').replace("'",'').strip()
                 word, emotion = clear_line.split(':')
@@ -33,20 +36,25 @@ class CommentAnalyser:
 
     def sentiment_analyze(self):
         analyser = SentimentIntensityAnalyzer().polarity_scores(self.final_text)
-        analyze_results = {'neg': analyser["neg"]*100, "pos": analyser["pos"]*100, 'neu': analyser['neu']*100}
-        print(analyze_results)
+        if analyser['neg'] > analyser['pos']:
+            self.neg += 1
+        elif analyser['pos'] > analyser['neg']:
+            self.pos += 1
+        else:
+            self.neu += 1
 
     def analyze(self, text):
-        self.text = text
-        self.lower_words()
-        self.tokenize()
-        self.get_emotion_list()
-        self.sentiment_analyze()
+        length = len(text)
+        for x in text:
+            self.text = x
+            self.lower_words()
+            self.tokenize()
+            self.get_emotion_list()
+            self.sentiment_analyze()
 
+
+        return [self.neg, self.neu, self.pos]
 
 if __name__ == "__main__":
-    cls = CommentAnalyser()
-    text = open('read.txt', encoding='utf-8').read()
-    text = text.split('\n')
-    for x in text:
-        cls.analyze(x)
+    a = CommentAnalyser()
+    print(a.analyze(["Really Helpful",  "This is the error "]))
